@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.views.generic.base import TemplateView
 
 
-def home(request):
-    return render(request, 'map/map.html')
+class MarkersMapView(TemplateView):
+    """ map view """
+    template_name = "map.html"

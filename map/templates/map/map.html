@@ -1,9 +1,8 @@
 {% extends 'map/main.html' %}
 {% load static %}
-{% load leaflet_tags %}
 
 {% block content %}
 
-{% leaflet_map 'mdcmap' callback='window.map_init' %}
+<div id="map"></div>
 
 {% endblock %}

@@ -37,8 +37,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
-    'leaflet',
     'map',
 ]
 
@@ -121,9 +119,3 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(os.path.dirname(os.path.dirname(__file__)), 'static')]
-
-LEAFLET_CONFIG = {
-    'SPATIAL_EXTENT': (1000, 50, 1200, 50),
-    'DEFAULT_PRECISION': 6,
-    # 'NO_GLOBALS' = False,
-}
