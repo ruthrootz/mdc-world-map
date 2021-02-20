@@ -32,3 +32,9 @@ a:visited {
 .nav-bar {
     background: #31731F;
 }
+
+.leaflet-container {
+    width: 90%;
+    height: 90%;
+    margin: 0 auto;
+}

@@ -10,5 +10,7 @@ function ready(callback) {
 }
 
 ready(() => {
-
+    function map_init (map, options) {
+        L.marker([50.5, 30.5]).addTo(map);
+    }
 });
