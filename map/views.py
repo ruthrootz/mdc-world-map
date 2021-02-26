@@ -4,8 +4,11 @@ from . models import Marker
 
 
 def locations(request):
-    markers = Marker.objects.all().values('name', 'location')
+    markers = Marker.objects.all().values('name', 'longitude', 'latitude')
     return JsonResponse(list(markers), safe=False)
+
+
+def map_view(request):
 
 
 class MapView(TemplateView):
