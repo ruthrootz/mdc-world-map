@@ -1,4 +1,4 @@
-from django.views.generic.base import TemplateView
+from django.shortcuts import render
 from django.http import JsonResponse
 from . models import Marker
 
@@ -9,11 +9,8 @@ def locations(request):
 
 
 def map_view(request):
+    return render(request, 'map/map.html')
 
 
-class MapView(TemplateView):
-    template_name = 'map/map.html'
-
-
-class MarkerView(TemplateView):
-    template_name = 'map/marker.html'
+def marker_view(request):
+    return render(request, 'map/marker.html')

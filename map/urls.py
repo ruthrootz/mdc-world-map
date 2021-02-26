@@ -5,7 +5,7 @@ from . views import *
 
 app_name = 'map'
 urlpatterns = [
-    path('', MapView.as_view()),
-    path('marker', MarkerView.as_view()),
+    path('', map_view, name='mapview'),
+    path('marker', marker_view, name='markerview'),
     url('locations', locations, name='locations'),
 ]

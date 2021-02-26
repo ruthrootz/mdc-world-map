@@ -24,8 +24,8 @@ ready(() => {
             markers.push(
                 new google.maps.Marker({
                     position: {
-                        lat: data['location'][0],
-                        lng: data['location'][1]
+                        lat: data['latitude'],
+                        lng: data['longitude'],
                     },
                     map: map,
                     icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'
