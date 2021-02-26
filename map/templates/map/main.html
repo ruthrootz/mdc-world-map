@@ -1,5 +1,4 @@
 {% load static %}
-{% load leaflet_tags %}
 
 <!doctype html>
 <html lang="en">
@@ -11,8 +10,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/main.css' %}" />
     <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.ico' %}"/>
-    {% leaflet_js %}
-    {% leaflet_css %}
 </head>
 <body>
     <nav class="navbar nav-bar no-select">
@@ -38,7 +35,5 @@
     </nav>
     {% block content %}
     {% endblock %}
-    <script lang="js" src="{% static 'javascript/main.js' %}"></script>
-    <noscript>Your browser does not support JavaScript.</noscript>
 </body>
 </html>
