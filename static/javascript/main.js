@@ -10,8 +10,28 @@ function ready(callback) {
 }
 
 ready(() => {
-    const attribution = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    const map = L.map('map')
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: attribution }).addTo(map);
-    map.fitWorld();
+
+let map = new google.maps.Map(document.getElementById('map'), {
+    center: new google.maps.LatLng(49.279504, -123.1162),
+    zoom: 14,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+});
+
+let markers = [];
+
+$.getJSON( '/locations', function(data) {
+    $.each(data, function() {
+        markers.push(
+            new google.maps.Marker({
+                position: {
+                    lat: data['location'][0],
+                    lng: data['location'][1]
+                },
+                map: map,
+                icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'
+            })
+        );
+    });
+});
+
 });
