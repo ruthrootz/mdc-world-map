@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import JsonResponse
 from . models import Marker
+from . forms import MarkerForm
 
 
 def locations(request):
@@ -13,4 +14,13 @@ def map_view(request):
 
 
 def marker_view(request):
-    return render(request, 'map/marker.html')
+    form = MarkerForm()
+    if request.method == 'POST':
+        form = MarkerForm(request.POST)
+        if form.is_valid():
+            form.save()
+        return redirect('/')
+    context = {
+        'form': form,
+    }
+    return render(request, 'map/marker.html', context)
