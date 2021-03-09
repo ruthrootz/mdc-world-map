@@ -12,20 +12,20 @@ function initialize() {
     request.onload = () => {
         if (request.status >= 200 && request.status < 400) {
             let data = JSON.parse(request.responseText);
-            data.forEach(() => {
+            for (let i = 0; i < data.length; i++) {
                 markers.push(
                     new google.maps.Marker({
                         position: {
-                            lat: parseFloat(data['latitude']),
-                            lng: parseFloat(data['longitude']),
+                            lat: parseFloat(data[i]['latitude']),
+                            lng: parseFloat(data[i]['longitude']),
                         },
-                        label: data['label'],
+                        title: data[i]['label'],
                         visible: true,
                         map: map,
                         icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png',
                     })
                 );
-            });
+            }
         } else {
             console.error('ERROR: ' + request.error + ', ' + request.status);
         }
