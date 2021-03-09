@@ -5,7 +5,7 @@ from . forms import MarkerForm
 
 
 def locations(request):
-    markers = Marker.objects.all().values('name', 'longitude', 'latitude')
+    markers = Marker.objects.all().values('label', 'longitude', 'latitude')
     return JsonResponse(list(markers), safe=False)
 
 
