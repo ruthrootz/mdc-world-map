@@ -5,7 +5,7 @@ from . forms import MarkerForm
 
 
 def locations(request):
-    markers = Marker.objects.all().values('label', 'longitude', 'latitude')
+    markers = Marker.objects.all().values('label', 'latitude', 'longitude')
     return JsonResponse(list(markers), safe=False)
 
 
@@ -19,7 +19,6 @@ def marker_view(request):
         form = MarkerForm(request.POST)
         if form.is_valid():
             form.save()
-        return redirect('/')
     context = {
         'form': form,
     }
