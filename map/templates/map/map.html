@@ -31,9 +31,10 @@
                     markers.push(
                         new google.maps.Marker({
                             position: {
-                                lat: data['latitude'],
-                                lng: data['longitude'],
+                                lat: parseFloat(data['latitude']),
+                                lng: parseFloat(data['longitude']),
                             },
+                            label: data['name'],
                             map: map,
                             icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png',
                             name: data['name'],
