@@ -3,7 +3,7 @@
 
 {% block content %}
 
-<div class="marker-form">
+<div style="font-size: 1.5rem" class="text-center text-light p-5">
     <form method="POST" action="/marker">
         {% csrf_token %}
         {{ form }}
