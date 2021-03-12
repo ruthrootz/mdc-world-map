@@ -3,7 +3,7 @@
 
 {% block content %}
 
-<form method="POST" action="/">
+<form method="POST" action="/marker">
     {% csrf_token %}
     {{ form }}
     <input type="submit" value="add marker" class="submit btn btn-info" />

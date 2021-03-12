@@ -19,6 +19,7 @@ def marker_view(request):
         form = MarkerForm(request.POST)
         if form.is_valid():
             form.save()
+        return redirect('/')
     context = {
         'form': form,
     }
