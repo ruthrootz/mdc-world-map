@@ -32,6 +32,11 @@ a:visited {
     background: #31731F;
 }
 
+.marker-form {
+    width: 75%;
+    margin: 0 auto;
+}
+
 #map {
   width: 100%;
   height: 100%;

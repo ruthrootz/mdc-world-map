@@ -3,11 +3,13 @@
 
 {% block content %}
 
-<form method="POST" action="/marker">
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="add marker" class="submit btn btn-info" />
-</form>
-<p>Use <a style="color: blue" href="https://www.google.com/maps">Google Maps</a> to find your location, right click on that location and copy the longitude/latitude shown.</p>
+<div class="marker-form">
+    <form method="POST" action="/marker">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="add marker" class="submit btn btn-info" />
+    </form>
+    <p>Use <a style="color: blue" href="https://www.google.com/maps">Google Maps</a> to find your location, right click on that location and copy the longitude/latitude shown.</p>
+</div>
 
 {% endblock %}
