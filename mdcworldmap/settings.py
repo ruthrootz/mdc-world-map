@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'hn%)x)9$qxmpz%d5g!3+qfp362*i@&d6dtdx=!_1ri+vjku2c+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['mdcworldmap.herokuapp.com/', '127.0.0.1']
 
 
 # Application definition
