@@ -5,8 +5,11 @@
 
 <div id="map"></div>
 
+{% with "https://maps.googleapis.com/maps/api/js?key="|add:api_key|add:"&callback=initialize" as url %}
+{% include url %}
+{% endwith %}
 <script
-        src="'https://maps.googleapis.com/maps/api/js?key=' + {{ api_key }} + '&callback=initialize'" async defer>
+        src="url" async defer>
 </script>
 
 <script src="{% static 'javascript/main.js' %}"></script>

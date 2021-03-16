@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 import os
 from pathlib import Path
 import django_heroku
-from . utils import load_env
+import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -26,9 +26,11 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['mdcworldmap.herokuapp.com', '127.0.0.1']
 
-load_env(BASE_DIR / '../.env')
-SECRET_KEY = os.environ.get('SECRET_KEY', 'secret')
-GOOGLE_MAPS_API_KEY = os.environ.get('GOOGLE_MAPS_API_KEY', 'googlemapskey')
+env = environ.Env()
+environ.Env.read_env()
+
+SECRET_KEY = env('SECRET_KEY')
+GOOGLE_MAPS_API_KEY = env('GOOGLE_MAPS_API_KEY')
 
 
 # Application definition
