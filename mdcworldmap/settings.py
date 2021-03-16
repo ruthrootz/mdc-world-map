@@ -28,6 +28,8 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['mdcworldmap.herokuapp.com/', '127.0.0.1']
 
+GOOGLE_MAPS_API_KEY = os.environ.get('GOOGLE_MAPS_API_KEY')
+
 
 # Application definition
 
