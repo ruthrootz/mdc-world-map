@@ -28,7 +28,6 @@ ALLOWED_HOSTS = ['mdcworldmap.herokuapp.com', '127.0.0.1']
 
 env = environ.Env()
 environ.Env.read_env()
-
 SECRET_KEY = env('SECRET_KEY')
 GOOGLE_MAPS_API_KEY = env('GOOGLE_MAPS_API_KEY')
 
