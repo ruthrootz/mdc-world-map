@@ -11,8 +11,15 @@ def locations(request):
 
 
 def map_view(request):
+    form = MarkerForm()
+    if request.method == 'POST':
+        form = MarkerForm(request.POST)
+        if form.is_valid():
+            form.save()
+        return redirect('/')
     context = {
-        'api_key': settings.GOOGLE_MAPS_API_KEY
+        'form': form,
+        'api_key': settings.GOOGLE_MAPS_API_KEY,
     }
     return render(request, 'map/map.html', context)
 
