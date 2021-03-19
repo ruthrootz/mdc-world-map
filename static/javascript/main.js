@@ -7,6 +7,11 @@ function initialize() {
         zoom: 3,
         mapTypeId: google.maps.MapTypeId.ROADMAP
     });
+    makeLocationsRequest()
+    addClickEventListener()
+}
+
+function makeLocationsRequest() {
     var request = new XMLHttpRequest();
     request.open('GET', '/locations', true);
     request.onload = () => {
@@ -33,4 +38,16 @@ function initialize() {
         console.error('ERROR: ' + request.error + ', ' + request.status);
     };
     request.send();
+}
+
+function addClickEventListener() {
+    const marker = new google.maps.Marker({
+        position: myLatlng,
+        map,
+        title: "Click to zoom",
+    });
+    marker.addListener('click', () => {
+        map.setZoom(8);
+        map.setCenter(marker.getPosition());
+    });
 }
