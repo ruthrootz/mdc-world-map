@@ -1,6 +1,5 @@
 let map;
 let markers = [];
-let marker;
 let disabled = true;
 
 function initialize() {
@@ -9,12 +8,12 @@ function initialize() {
         zoom: 3,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
     });
-    getLocationsRequest();
+    makeLocationsRequest();
     addClickEventListener();
     disableSaveButton();
 }
 
-function getLocationsRequest() {
+function makeLocationsRequest() {
     var request = new XMLHttpRequest();
     request.open('GET', '/locations', true);
     request.onload = () => {
@@ -44,19 +43,18 @@ function getLocationsRequest() {
 }
 
 function addClickEventListener() {
-    map.addListener('click', (e) => {
-        placeMarkerAndPanTo(e.latLng, map);
+    const marker = new google.maps.Marker({
+        position: myLatlng,
+        map,
+        title: "click to zoom",
+    });
+    marker.addListener('click', () => {
+        map.setZoom(8);
+        map.setCenter(marker.getPosition());
     });
 }
 
-function placeMarkerAndPanTo(latLng, map) {
-  marker = new google.maps.Marker({
-    position: latLng,
-    map: map,
-  });
-  map.panTo(latLng);
-}
-
 function disableSaveButton() {
-    document.getElementById('save-button').disabled = true;
+    const button = document.getElementById('save-button');
+    button.disabled = true;
 }
