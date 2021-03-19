@@ -3,14 +3,6 @@
 
 {% block content %}
 
-<div style="font-size: 1.5rem" class="text-center text-light p-5">
-    <form method="POST" action="/">
-        {% csrf_token %}
-        {{ form }}
-        <input type="submit" value="add marker" class="submit btn btn-info" />
-    </form>
-</div>
-
 <div id="map"></div>
 
 <script
