@@ -10,6 +10,12 @@ function initialize() {
         zoom: 3,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
     });
+    getLocationsRequest();
+    addClickEventListener();
+    disableSaveButton();
+}
+
+function getLocationsRequest() {
     var request = new XMLHttpRequest();
     request.open('GET', '/locations', true);
     request.onload = () => {
@@ -36,9 +42,6 @@ function initialize() {
         console.error('ERROR: ' + request.error + ', ' + request.status);
     };
     request.send();
-
-    addClickEventListener();
-    disableSaveButton();
 }
 
 function addClickEventListener() {
