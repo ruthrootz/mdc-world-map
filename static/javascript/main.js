@@ -4,6 +4,7 @@ let marker;
 let disabled = true;
 
 function initialize() {
+    console.log('test');
     map = new google.maps.Map(document.getElementById('map'), {
         center: new google.maps.LatLng(31.7771, -40.24965),
         zoom: 3,
@@ -50,11 +51,11 @@ function addClickEventListener() {
 }
 
 function placeMarkerAndPanTo(latLng, map) {
-  marker = new google.maps.Marker({
-    position: latLng,
-    map: map,
-  });
-  map.panTo(latLng);
+   marker = new google.maps.Marker({
+        position: latLng,
+        map: map,
+    });
+    map.panTo(latLng);
 }
 
 function disableSaveButton() {
