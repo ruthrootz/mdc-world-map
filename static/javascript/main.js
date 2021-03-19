@@ -35,7 +35,6 @@ function initialize() {
         console.error('ERROR: ' + request.error + ', ' + request.status);
     };
     request.send();
-
     addClickEventListener();
     disableSaveButton();
 }
